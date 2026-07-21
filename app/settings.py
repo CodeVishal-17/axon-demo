@@ -1,7 +1,7 @@
 import os
 
 class Settings:
-    PYTHON_VERSION = "3.9"
+    PYTHON_VERSION = "3.12"
     JWT_SECRET = os.getenv("JWT_SECRET", "default")
     DB_URL = os.getenv("DB_URL", "postgresql://localhost/users")
     REDIS_ENABLED = os.getenv("REDIS_ENABLED", "true").lower() == "true"
