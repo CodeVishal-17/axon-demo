@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.responses import JSONResponse
 from app.settings import settings
-import logging
+import structlog
 from app.auth import verify_jwt_token
 
-logging.basicConfig(filename='app.log', level=logging.INFO)
+logger = structlog.get_logger()
 
 app = FastAPI()
 
@@ -18,6 +18,7 @@ def verify_token(authorization: str = Header(default="")):
 
 @app.middleware("http")
 async def rate_limit_middleware(request: Request, call_next):
+    logger.info("request_received", path=request.url.path)
     return await call_next(request)
 
 @app.get("/healthz")
