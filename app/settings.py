@@ -8,7 +8,7 @@ class Settings:
     QUEUE_TYPE = os.getenv("QUEUE_TYPE", "celery")
     EMAIL_PROVIDER = os.getenv("EMAIL_PROVIDER", "smtp")
     NEW_ONBOARDING_FEATURE = os.getenv("NEW_ONBOARDING_FEATURE", "false").lower() == "true"
-    RATE_LIMIT = 100
+    RATE_LIMIT = 250
     PORT = 5000
 
 settings = Settings()
