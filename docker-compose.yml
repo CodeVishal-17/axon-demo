@@ -6,13 +6,13 @@ services:
       - "5000:5000"
     environment:
       - JWT_SECRET=dev_secret
-      - DB_URL=mysql://user:pass@db:3306/users
+      - DB_URL=postgresql://user:pass@db:5432/users
       - REDIS_ENABLED=false
       - QUEUE_TYPE=celery
       - EMAIL_PROVIDER=smtp
       - NEW_ONBOARDING_FEATURE=false
   db:
-    image: mysql:8.0
+    image: postgres:15
     environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=users
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=users
