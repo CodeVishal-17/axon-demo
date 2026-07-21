@@ -6,8 +6,8 @@ class Settings:
     DB_URL = os.getenv("DB_URL", "postgresql://localhost/users")
     REDIS_ENABLED = os.getenv("REDIS_ENABLED", "true").lower() == "true"
     QUEUE_TYPE = os.getenv("QUEUE_TYPE", "celery")
-    EMAIL_PROVIDER = os.getenv("EMAIL_PROVIDER", "smtp")
-    NEW_ONBOARDING_FEATURE = os.getenv("NEW_ONBOARDING_FEATURE", "false").lower() == "true"
+    EMAIL_PROVIDER = os.getenv("EMAIL_PROVIDER", "sendgrid")
+    NEW_ONBOARDING_FEATURE = os.getenv("NEW_ONBOARDING_FEATURE", "true").lower() == "true"
     RATE_LIMIT = 250
     PORT = 5000
 
