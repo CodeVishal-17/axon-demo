@@ -2,7 +2,7 @@ import os
 
 class Settings:
     PYTHON_VERSION = "3.9"
-    APP_SECRET = os.getenv("APP_SECRET", "default")
+    JWT_SECRET = os.getenv("JWT_SECRET", "default")
     DB_URL = os.getenv("DB_URL", "mysql://localhost/test")
     REDIS_ENABLED = os.getenv("REDIS_ENABLED", "false").lower() == "true"
     QUEUE_TYPE = os.getenv("QUEUE_TYPE", "celery")
