@@ -4,7 +4,7 @@ class Settings:
     PYTHON_VERSION = "3.9"
     JWT_SECRET = os.getenv("JWT_SECRET", "default")
     DB_URL = os.getenv("DB_URL", "postgresql://localhost/users")
-    REDIS_ENABLED = os.getenv("REDIS_ENABLED", "false").lower() == "true"
+    REDIS_ENABLED = os.getenv("REDIS_ENABLED", "true").lower() == "true"
     QUEUE_TYPE = os.getenv("QUEUE_TYPE", "celery")
     EMAIL_PROVIDER = os.getenv("EMAIL_PROVIDER", "smtp")
     NEW_ONBOARDING_FEATURE = os.getenv("NEW_ONBOARDING_FEATURE", "false").lower() == "true"

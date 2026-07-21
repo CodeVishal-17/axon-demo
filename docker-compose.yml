@@ -7,7 +7,7 @@ services:
     environment:
       - JWT_SECRET=dev_secret
       - DB_URL=postgresql://user:pass@db:5432/users
-      - REDIS_ENABLED=false
+      - REDIS_ENABLED=true
       - QUEUE_TYPE=celery
       - EMAIL_PROVIDER=smtp
       - NEW_ONBOARDING_FEATURE=false
@@ -16,3 +16,5 @@ services:
     environment:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=users
+  redis:
+    image: redis:7
