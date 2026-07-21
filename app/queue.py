@@ -1,6 +1,4 @@
-from celery import Celery
-celery_app = Celery('tasks', broker='pyamqp://guest@localhost//')
+import asyncio
 
-@celery_app.task
-def background_job():
-    print("Running in Celery")
+async def background_job():
+    print("Running background task using asyncio")

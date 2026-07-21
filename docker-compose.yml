@@ -3,14 +3,14 @@ services:
   web:
     build: .
     ports:
-      - "5000:5000"
+      - "8000:8000"
     environment:
       - JWT_SECRET=dev_secret
       - DB_URL=postgresql://user:pass@db:5432/users
       - REDIS_ENABLED=true
-      - QUEUE_TYPE=celery
-      - EMAIL_PROVIDER=smtp
-      - NEW_ONBOARDING_FEATURE=false
+      - QUEUE_TYPE=asyncio
+      - EMAIL_PROVIDER=sendgrid
+      - NEW_ONBOARDING_FEATURE=true
   db:
     image: postgres:15
     environment:

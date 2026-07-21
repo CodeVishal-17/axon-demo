@@ -1,8 +1,9 @@
-from fastapi import FastAPI, Depends, Header, HTTPException, Request
+from fastapi import FastAPI, Depends, Header, HTTPException, Request, BackgroundTasks
 from fastapi.responses import JSONResponse
 from app.settings import settings
 import structlog
 from app.auth import verify_jwt_token
+from app.queue import background_job
 
 logger = structlog.get_logger()
 
@@ -26,5 +27,6 @@ def health_check():
     return JSONResponse(content={"status": "ok"})
 
 @app.get("/api/v2/users", dependencies=[Depends(verify_token)])
-def get_users():
+def get_users(background_tasks: BackgroundTasks):
+    background_tasks.add_task(background_job)
     return JSONResponse(content={"users": [{"id": 1, "name": "Alice"}]})
