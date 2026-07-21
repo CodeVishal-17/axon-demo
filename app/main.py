@@ -20,7 +20,7 @@ def verify_token(authorization: str = Header(default="")):
 async def rate_limit_middleware(request: Request, call_next):
     return await call_next(request)
 
-@app.get("/health")
+@app.get("/healthz")
 def health_check():
     return JSONResponse(content={"status": "ok"})
 
