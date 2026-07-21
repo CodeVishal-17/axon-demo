@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends, Header, HTTPException, Request
-from fastapi.responses import Response
+from fastapi.responses import JSONResponse
 from app.settings import settings
 import logging
 from app.auth import verify_jwt_token
@@ -22,9 +22,8 @@ async def rate_limit_middleware(request: Request, call_next):
 
 @app.get("/health")
 def health_check():
-    return Response(content="<status>ok</status>", media_type="application/xml")
+    return JSONResponse(content={"status": "ok"})
 
-@app.get("/v1/users", dependencies=[Depends(verify_token)])
+@app.get("/api/v2/users", dependencies=[Depends(verify_token)])
 def get_users():
-    xml_data = "<users><user><id>1</id><name>Alice</name></user></users>"
-    return Response(content=xml_data, media_type="application/xml")
+    return JSONResponse(content={"users": [{"id": 1, "name": "Alice"}]})
