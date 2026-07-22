@@ -2,7 +2,7 @@
 
 ## Endpoints
 - `GET /health` - Health check
-- `GET /v1/users` - Fetch user list (Returns XML)
+- `GET /api/v2/users` - Fetch user list (Returns JSON: {"users": [{"id": 1, "name": "Alice"}]}; requires verify_token; enqueues background_job)
 
 ## Rate Limits
 The API is rate limited to 100 requests/minute per IP.
