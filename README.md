@@ -10,7 +10,7 @@ A microservice for managing user profiles and authentication.
 
 ## Deployment
 Deployment is strictly via Docker Compose.
-The service runs on port 5000.
+The service runs on port 8000.
 
 ## Configuration
 Requires the `APP_SECRET` environment variable for authentication.
