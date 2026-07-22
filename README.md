@@ -4,7 +4,7 @@ A microservice for managing user profiles and authentication.
 ## Architecture
 - Python 3.9
 - MySQL database for storage
-- Celery for queueing background tasks (e.g. sending emails)
+- asyncio-based background tasks (see app/queue.py, e.g. sending emails)
 - File-based logging to `app.log`
 - Returns XML responses by default for legacy compatibility.
 
