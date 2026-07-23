@@ -1,7 +1,7 @@
 # API Documentation
 
 ## Endpoints
-- `GET /health` - Health check
+- `GET /healthz` - Health check (Returns JSON: {"status": "ok"})
 - `GET /v1/users` - Fetch user list (Returns XML)
 
 ## Rate Limits
